@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';  
 import { Movie } from '../models/Movie';
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,5 +25,16 @@ export class MoviesService {
   deleteMovieById = async(id:number | undefined):Promise<Object> => {
   return await this.httpClient.delete(`${this.url}movies/${id}`).toPromise() as Promise<Object>;
 }
+
+ createMovie = async(movie: Movie): Promise<Object> => {
+  return await this.httpClient.post(`${this.url}movies`, movie).toPromise() as Promise<Object>;
+}
+
+  updateMovie = async(id: string | number | null,  movie: Movie): Promise<Object> => {
+  return await this.httpClient.put(`${this.url}movies/${id}`, movie).toPromise() as Promise<Object>;
+}
+
+
+
 
 }

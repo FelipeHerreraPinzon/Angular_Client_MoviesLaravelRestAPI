@@ -1,5 +1,6 @@
 <h1>Peliculas</h1>
 <hr />
+<button class="btn btn-primary" [routerLink]="['/movie-form', 0]">Crear Nueva Película</button>
 <table class="table table-striped">
     <thead>
       <tr>
@@ -15,8 +16,9 @@
         <td>{{movie.title}}</td>
         <td>{{movie.year}}</td>
         <td>
-          <i class="bi bi-eye-fill" [routerLink]="'/movie/'+movie.id"></i>
-          <i class="bi bi-trash3-fill text-danger m-3 mt-0 mr-0 my-0" (click)="deleteMovie(movie.id)"></i>
+          <i class="bi bi-eye-fill" [routerLink]="['/movie', movie.id]"></i>
+          <i class="bi bi-pencil text-primary m-3 mt-0 my-0" [routerLink]="['/movie-form', movie.id]"></i>
+          <i class="bi bi-trash3-fill text-danger" (click)="deleteMovie(movie.id)"></i>
         </td>
       </tr>
   
